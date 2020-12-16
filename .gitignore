@@ -1,0 +1,12 @@
+# Build Files
+build/
+CMakeFiles
+cmake_install.cmake
+CMakeCache.txt
+MakeFile
+
+# Executables
+testDriver
+
+# Workspace Files
+.vscode
