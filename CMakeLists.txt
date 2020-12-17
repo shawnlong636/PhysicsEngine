@@ -3,6 +3,8 @@ project(PhysicsEngine VERSION 0.1.0)
 
 add_subdirectory(googletest)
 
+include_directories(include/)
+
 add_library(src_files SHARED
     src/core.cpp
 )

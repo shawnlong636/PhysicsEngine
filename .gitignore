@@ -13,3 +13,6 @@ unit_test
 
 # Workspace Files
 .vscode
+
+# Mac Temporary Files
+.DS_Store

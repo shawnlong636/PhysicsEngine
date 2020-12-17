@@ -1,4 +1,4 @@
-#include "../header/core.hpp"
+#include "phys/core.hpp"
 
 phys::Vector3::Vector3() : x(0), y(0), z(0) { }
 
