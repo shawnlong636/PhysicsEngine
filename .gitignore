@@ -9,6 +9,7 @@ libsrc_files.dylib
 
 # Executables
 testDriver
+unit_test
 
 # Workspace Files
 .vscode
