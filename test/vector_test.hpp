@@ -77,4 +77,18 @@ TEST(VectorTests, Magnitude) {
     EXPECT_DOUBLE_EQ(v3.magnitude(),std::sqrt(v3.x*v3.x + v3.y*v3.y + v3.z*v3.z) );
 }
 
+TEST(VectorTests, Normalize) {
+    Vector3 vec(3,4,5);
+    vec.normalize();
+    EXPECT_DOUBLE_EQ(vec.x, 3.0/std::sqrt(50));
+    EXPECT_DOUBLE_EQ(vec.y, 4.0/std::sqrt(50));
+    EXPECT_DOUBLE_EQ(vec.z, 5.0/std::sqrt(50));
+
+    Vector3 vec2;
+    ASSERT_NO_THROW(vec2.normalize());
+    EXPECT_DOUBLE_EQ(vec2.x, 0);
+    EXPECT_DOUBLE_EQ(vec2.y, 0);
+    EXPECT_DOUBLE_EQ(vec2.z, 0);
+}
+
 #endif // VECTOR_TEST_HPP

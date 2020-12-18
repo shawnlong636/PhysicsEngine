@@ -14,6 +14,7 @@ namespace phys {
         void invert();
         double dot(const Vector3& vec2);
         double magnitude();
+        void normalize();
 
         Vector3 operator+(const Vector3& vec2); // Vector Addition
         Vector3 operator-(const Vector3& vec2); // Vector Subtraction
