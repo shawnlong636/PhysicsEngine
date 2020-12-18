@@ -3,8 +3,6 @@
 
 namespace phys {
     class Vector3 {
-    private:
-        double pad;
     public:
         double x;
         double y;
@@ -13,6 +11,11 @@ namespace phys {
         Vector3();
         Vector3(const double x, const double y, const double z);
         void invert();
+
+        // Overloaded Operators
+        Vector3 operator+(const Vector3& vec2);
+        Vector3 operator*(const double& scalar);
+        
     };
 }
 
