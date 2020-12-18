@@ -11,11 +11,27 @@ void Vector3::invert() {
     z *= -1;
 }
 
+double Vector3::dot(const Vector3& vec2) {
+    double dotProduct = 0;
+    dotProduct += (this->x * vec2.x);
+    dotProduct += (this->y * vec2.y);
+    dotProduct += (this->z * vec2.z);
+    return dotProduct;
+}
+
 Vector3 Vector3::operator+(const phys::Vector3& vec2) {
     Vector3 vec1(this->x,this->y,this->z);
     vec1.x += vec2.x;
     vec1.y += vec2.y;
     vec1.z += vec2.z;
+    return vec1;
+}
+
+Vector3 Vector3::operator-(const phys::Vector3& vec2) {
+    Vector3 vec1(this->x,this->y,this->z);
+    vec1.x -= vec2.x;
+    vec1.y -= vec2.y;
+    vec1.z -= vec2.z;
     return vec1;
 }
 
