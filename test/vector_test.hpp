@@ -66,4 +66,15 @@ TEST(VectorTests, DotProduct) {
     EXPECT_DOUBLE_EQ(e.dot(f),0); // Orthogonal Vectors
 }
 
+TEST(VectorTests, Magnitude) {
+    Vector3 v1(-1,-1,-1);
+    EXPECT_DOUBLE_EQ(v1.magnitude(),std::sqrt(3.0));
+
+    Vector3 v2;
+    EXPECT_DOUBLE_EQ(v2.magnitude(),0);
+
+    Vector3 v3(5,15,-7);
+    EXPECT_DOUBLE_EQ(v3.magnitude(),std::sqrt(v3.x*v3.x + v3.y*v3.y + v3.z*v3.z) );
+}
+
 #endif // VECTOR_TEST_HPP

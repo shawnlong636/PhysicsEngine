@@ -1,5 +1,6 @@
 #ifndef CORE_HPP
 #define CORE_HPP
+#include <cmath>
 
 namespace phys {
     class Vector3 {
@@ -12,6 +13,7 @@ namespace phys {
         Vector3(const double x, const double y, const double z);
         void invert();
         double dot(const Vector3& vec2);
+        double magnitude();
 
         Vector3 operator+(const Vector3& vec2); // Vector Addition
         Vector3 operator-(const Vector3& vec2); // Vector Subtraction

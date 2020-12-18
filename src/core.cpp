@@ -19,6 +19,10 @@ double Vector3::dot(const Vector3& vec2) {
     return dotProduct;
 }
 
+double Vector3::magnitude() {
+    return std::sqrt(std::pow(x,2) + std::pow(y,2) + std::pow(z,2));
+}
+
 Vector3 Vector3::operator+(const phys::Vector3& vec2) {
     Vector3 vec1(this->x,this->y,this->z);
     vec1.x += vec2.x;
