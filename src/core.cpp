@@ -11,7 +11,7 @@ void Vector3::invert() {
     z *= -1;
 }
 
-double Vector3::dot(const Vector3& vec2) {
+double Vector3::dotProduct(const Vector3& vec2) {
     double dotProduct = 0;
     dotProduct += (this->x * vec2.x);
     dotProduct += (this->y * vec2.y);
@@ -48,10 +48,28 @@ Vector3 Vector3::operator-(const phys::Vector3& vec2) {
     return vec1;
 }
 
+void Vector3::operator+=(const Vector3& vec2) {
+    this->x += vec2.x;
+    this->y += vec2.y;
+    this->z += vec2.z;
+}
+
+void Vector3::operator-=(const Vector3& vec2) {
+    this->x -= vec2.x;
+    this->y -= vec2.y;
+    this->z -= vec2.z;
+}
+
 Vector3 Vector3::operator*(const double& scalar) {
     Vector3 vec1(this->x,this->y,this->z);
     vec1.x *= scalar;
     vec1.y *= scalar;
     vec1.z *= scalar;
     return vec1;
+}
+
+void Vector3::operator*=(const double& scalar) {
+    this->x *= scalar;
+    this->y *= scalar;
+    this->z *= scalar;
 }

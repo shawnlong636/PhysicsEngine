@@ -55,15 +55,15 @@ TEST(VectorTests, VectorSubtraction) {
 TEST(VectorTests, DotProduct) {
     Vector3 a(9,2,7);
     Vector3 b(4,8,10);
-    EXPECT_DOUBLE_EQ(a.dot(b), 122);
+    EXPECT_DOUBLE_EQ(a.dotProduct(b), 122);
 
     Vector3 c(1,2,3);
     Vector3 d(4,-5,6);
-    EXPECT_DOUBLE_EQ(c.dot(d), 12);
+    EXPECT_DOUBLE_EQ(c.dotProduct(d), 12);
 
     Vector3 e(5,0,-7);
     Vector3 f(7,2,5);
-    EXPECT_DOUBLE_EQ(e.dot(f),0); // Orthogonal Vectors
+    EXPECT_DOUBLE_EQ(e.dotProduct(f),0); // Orthogonal Vectors
 }
 
 TEST(VectorTests, Magnitude) {
@@ -89,6 +89,15 @@ TEST(VectorTests, Normalize) {
     EXPECT_DOUBLE_EQ(vec2.x, 0);
     EXPECT_DOUBLE_EQ(vec2.y, 0);
     EXPECT_DOUBLE_EQ(vec2.z, 0);
+}
+
+TEST(VectorTests, AdditionAssignment) {
+    Vector3 vec;
+    Vector3 vec2(1,2,3);
+    vec += vec2;
+    EXPECT_DOUBLE_EQ(vec.x,1.0);
+    EXPECT_DOUBLE_EQ(vec.y,2.0);
+    EXPECT_DOUBLE_EQ(vec.z,3.0);
 }
 
 #endif // VECTOR_TEST_HPP
