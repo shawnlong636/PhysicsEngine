@@ -11,11 +11,11 @@ void Vector3::invert() {
     z *= -1;
 }
 
-double Vector3::dotProduct(const Vector3& vec2) {
+double Vector3::dotProduct(const Vector3& v) {
     double dotProduct = 0;
-    dotProduct += (this->x * vec2.x);
-    dotProduct += (this->y * vec2.y);
-    dotProduct += (this->z * vec2.z);
+    dotProduct += (this->x * v.x);
+    dotProduct += (this->y * v.y);
+    dotProduct += (this->z * v.z);
     return dotProduct;
 }
 
@@ -32,32 +32,32 @@ void Vector3::normalize() {
     }
 }
 
-Vector3 Vector3::operator+(const phys::Vector3& vec2) {
+Vector3 Vector3::operator+(const phys::Vector3& v) {
     Vector3 vec1(this->x,this->y,this->z);
-    vec1.x += vec2.x;
-    vec1.y += vec2.y;
-    vec1.z += vec2.z;
+    vec1.x += v.x;
+    vec1.y += v.y;
+    vec1.z += v.z;
     return vec1;
 }
 
-Vector3 Vector3::operator-(const phys::Vector3& vec2) {
+Vector3 Vector3::operator-(const phys::Vector3& v) {
     Vector3 vec1(this->x,this->y,this->z);
-    vec1.x -= vec2.x;
-    vec1.y -= vec2.y;
-    vec1.z -= vec2.z;
+    vec1.x -= v.x;
+    vec1.y -= v.y;
+    vec1.z -= v.z;
     return vec1;
 }
 
-void Vector3::operator+=(const Vector3& vec2) {
-    this->x += vec2.x;
-    this->y += vec2.y;
-    this->z += vec2.z;
+void Vector3::operator+=(const Vector3& v) {
+    this->x += v.x;
+    this->y += v.y;
+    this->z += v.z;
 }
 
-void Vector3::operator-=(const Vector3& vec2) {
-    this->x -= vec2.x;
-    this->y -= vec2.y;
-    this->z -= vec2.z;
+void Vector3::operator-=(const Vector3& v) {
+    this->x -= v.x;
+    this->y -= v.y;
+    this->z -= v.z;
 }
 
 Vector3 Vector3::operator*(const double& scalar) {
