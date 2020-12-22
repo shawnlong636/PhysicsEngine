@@ -13,6 +13,7 @@ namespace phys {
         Vector3(const double x, const double y, const double z);
         void invert();
         double dotProduct(const Vector3& v);
+        Vector3 crossProduct(const Vector3& v);
         double magnitude();
         void normalize();
 

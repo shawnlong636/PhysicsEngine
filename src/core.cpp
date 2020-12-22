@@ -19,6 +19,14 @@ double Vector3::dotProduct(const Vector3& v) {
     return dotProduct;
 }
 
+Vector3 Vector3::crossProduct(const Vector3& v) {
+    Vector3 cp;
+    cp.x = (this->y * v.z) - (this->z * v.y);
+    cp.y = (this->z * v.x) - (this->x * v.z);
+    cp.z = (this->x * v.y) - (this->y * v.x);
+    return cp;
+}
+
 double Vector3::magnitude() {
     return std::sqrt(std::pow(x,2) + std::pow(y,2) + std::pow(z,2));
 }

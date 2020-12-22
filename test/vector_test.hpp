@@ -98,6 +98,40 @@ TEST(VectorTests, AdditionAssignment) {
     EXPECT_DOUBLE_EQ(vec.x,1.0);
     EXPECT_DOUBLE_EQ(vec.y,2.0);
     EXPECT_DOUBLE_EQ(vec.z,3.0);
+
+    Vector3 vec3(-1,-2,-3);
+    Vector3 vec4(1,2,3);
+    vec3 += vec4;
+    
+    EXPECT_DOUBLE_EQ(vec3.x,0);
+    EXPECT_DOUBLE_EQ(vec3.y,0);
+    EXPECT_DOUBLE_EQ(vec3.z,0);
+
+    vec3 += Vector3(9,8,7);
+
+    EXPECT_DOUBLE_EQ(vec3.x,9);
+    EXPECT_DOUBLE_EQ(vec3.y,8);
+    EXPECT_DOUBLE_EQ(vec3.z,7);
+    
+}
+
+TEST(VectorTests, CrossProduct) {
+    Vector3 v1(1,0,0);
+    Vector3 v2(0,1,0);
+    Vector3 v3 = v1.crossProduct(v2);
+
+    EXPECT_DOUBLE_EQ(v3.x,0);
+    EXPECT_DOUBLE_EQ(v3.y,0);
+    EXPECT_DOUBLE_EQ(v3.z,1);
+
+    Vector3 v4(2,3,4);
+    Vector3 v5(5,6,7);
+
+    v4 = v4.crossProduct(v5);
+
+    EXPECT_DOUBLE_EQ(v4.x,-3);
+    EXPECT_DOUBLE_EQ(v4.y,6);
+    EXPECT_DOUBLE_EQ(v4.z,-3);
 }
 
 #endif // VECTOR_TEST_HPP
