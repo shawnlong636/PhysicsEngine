@@ -27,6 +27,14 @@ Vector3 Vector3::crossProduct(const Vector3& v) {
     return cp;
 }
 
+Vector3 Vector3::crossProduct(const Vector3& v1, const Vector3& v2) {
+    Vector3 vec;
+    vec.x = (v1.y * v2.z) - (v1.z * v2.y);
+    vec.y = (v1.z * v2.x) - (v1.x * v2.z);
+    vec.z = (v1.x * v2.y) - (v1.y * v2.x);
+    return vec;
+}
+
 double Vector3::magnitude() {
     return std::sqrt(std::pow(x,2) + std::pow(y,2) + std::pow(z,2));
 }
@@ -38,6 +46,20 @@ void Vector3::normalize() {
         y /= mag;
         z /= mag;
     }
+}
+
+void Vector3::makeOrthonormalBasis(Vector3* a, Vector3* b, Vector3* c) {
+    if (!(a && b && c)) {
+        throw std::invalid_argument("Vectors a and b must be non-null");
+    }
+    a->normalize();
+
+    *c = Vector3::crossProduct(*a,*b);
+    c->normalize();
+    *b = Vector3::crossProduct(*c,*a);
+    /* Normalizing b is unnecessary since a and c are
+    both normal and orthogonal. For LH coord sys, reverse
+    order of both of the cross products (b x a and c x a)  */
 }
 
 Vector3 Vector3::operator+(const phys::Vector3& v) {

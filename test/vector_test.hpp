@@ -134,4 +134,52 @@ TEST(VectorTests, CrossProduct) {
     EXPECT_DOUBLE_EQ(v4.z,-3);
 }
 
+TEST(VectorTests, StaticCrossProduct) {
+    Vector3 v1(1,0,0);
+    Vector3 v2(0,1,0);
+    Vector3 v3 = Vector3::crossProduct(v1,v2);
+
+    EXPECT_DOUBLE_EQ(v3.x,0);
+    EXPECT_DOUBLE_EQ(v3.y,0);
+    EXPECT_DOUBLE_EQ(v3.z,1);
+
+    Vector3 v4(2,3,4);
+    Vector3 v5(5,6,7);
+
+    v4 = Vector3::crossProduct(v4,v5);
+
+    EXPECT_DOUBLE_EQ(v4.x,-3);
+    EXPECT_DOUBLE_EQ(v4.y,6);
+    EXPECT_DOUBLE_EQ(v4.z,-3);
+}
+
+TEST(VectorTests, OrthonormalBasis) {
+    Vector3* a = nullptr;
+    Vector3* b = nullptr;
+    Vector3* c = nullptr;
+
+    EXPECT_THROW(Vector3::makeOrthonormalBasis(a,b,c), std::invalid_argument);
+
+    a = new Vector3(2,4,4);
+    b = new Vector3(-1, 5, 2);
+    c = new Vector3();
+    Vector3::makeOrthonormalBasis(a,b,c);
+    
+    EXPECT_DOUBLE_EQ(a->x, 1.0/3.0);
+    EXPECT_DOUBLE_EQ(a->y,2.0/3.0);
+    EXPECT_DOUBLE_EQ(a->z,2.0/3.0);
+
+    EXPECT_DOUBLE_EQ(c->x, -6.0 / std::sqrt(101));
+    EXPECT_DOUBLE_EQ(c->y, -4.0 / std::sqrt(101));
+    EXPECT_DOUBLE_EQ(c->z, 7.0 / std::sqrt(101));
+
+    EXPECT_DOUBLE_EQ(b->x, -22.0/(3.0*std::sqrt(101)));
+    EXPECT_DOUBLE_EQ(b->y, 19.0/(3.0*std::sqrt(101)));
+    EXPECT_DOUBLE_EQ(b->z, -8.0/(3.0*std::sqrt(101)));
+
+    delete a;
+    delete b;
+    delete c;
+}
+
 #endif // VECTOR_TEST_HPP

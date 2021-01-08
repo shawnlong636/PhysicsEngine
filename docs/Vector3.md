@@ -4,11 +4,11 @@ The Vector3 class represents a vector in <img src="https://render.githubusercont
 
 #### Properties
 
-| Type   | Name | Description                |
-| ------ | ---- | -------------------------- |
-| double | x    | X coordinate of the vector |
-| double | y    | Y coordinate of the vector |
-| double | z    | Z coordinate of the vector |
+| Type   | Name | Description                  |
+| ------ | ---- | ---------------------------- |
+| double | x    | *x* coordinate of the vector |
+| double | y    | *y* coordinate of the vector |
+| double | z    | *z* coordinate of the vector |
 
 #### Public Methods
 
@@ -21,6 +21,13 @@ The Vector3 class represents a vector in <img src="https://render.githubusercont
 | Vector3 | crossProduct(const Vector3& v)                               | Returns a vector which is orthogonal to the current vector and the parameter. Implementation based on simplification of the determinant for these two vector functions. ([Details](#Cross Product)) |
 | double  | magnitude()                                                  | Returns magnitude of the vector expressed by <img src="https://latex.codecogs.com/gif.latex?\sqrt{x^2&plus;y^2&plus;z^2}" title="\sqrt{x^2+y^2+z^2}" /> |
 | void    | normalize                                                    | Normalizes the vector by dividing each component by the `magnitude()` of the vector. The result is a vector with magnitude 1. |
+
+#### Static Methods
+
+| Type           | Name                                                     | Description                                                  |
+| -------------- | -------------------------------------------------------- | ------------------------------------------------------------ |
+| static Vector3 | crossProduct(const Vector3& v1, const Vector3& v2)       | Returns a vector which is orthogonal to vectors *v1* and *v2*. Implementation based on simplification of the determinant for these two vector functions. ([Details](#Cross Product)) |
+| static void    | makeOrthonormalBasis(Vector3* a, Vector3* b, Vector3* c) | Given non-null vectors *a* *b*, and *c*, this method converts *a*, *b* and *c* into an orthonormal basis, using a <u>right-handed coordinate system</u>. If *a*, *b* or *c* are null, it throws a `std::invalid_argument` exception. Utilizes `normalize()` and `crossProduct()` to obtain the normal orthogonal vectors. |
 
 
 
