@@ -19,6 +19,7 @@ namespace phys {
         double magnitude();
         void normalize();
         static void makeOrthonormalBasis(Vector3* a, Vector3* b, Vector3* c);
+        void addScaledVector(const Vector3& v, const double& scalar);
 
         Vector3 operator+(const Vector3& v); // Vector Addition
         Vector3 operator-(const Vector3& v); // Vector Subtraction

@@ -182,4 +182,36 @@ TEST(VectorTests, OrthonormalBasis) {
     delete c;
 }
 
+TEST(VectorTests, AddScaledVector) {
+    Vector3 v1(0,0,0);
+    Vector3 v2(1,1,1);
+
+    v1.addScaledVector(v2,3);
+
+    // Confirm that v1 is correctly modified
+    EXPECT_DOUBLE_EQ(v1.x,3);
+    EXPECT_DOUBLE_EQ(v1.y,3);
+    EXPECT_DOUBLE_EQ(v1.z,3);
+
+    // Confirm that v2 is not modified
+    EXPECT_DOUBLE_EQ(v2.x,1);
+    EXPECT_DOUBLE_EQ(v2.y,1);
+    EXPECT_DOUBLE_EQ(v2.z,1);
+
+    // Test adding scaled version of itself
+    v2.addScaledVector(v2,-1);
+    
+    EXPECT_DOUBLE_EQ(v2.x,0);
+    EXPECT_DOUBLE_EQ(v2.y,0);
+    EXPECT_DOUBLE_EQ(v2.z,0);
+
+    // Test Scaling by Zero
+    Vector3 v3(9,5,1);
+    v2.addScaledVector(v2,0);
+
+    EXPECT_DOUBLE_EQ(v3.x,9);
+    EXPECT_DOUBLE_EQ(v3.y,5);
+    EXPECT_DOUBLE_EQ(v3.z,1);
+}
+
 #endif // VECTOR_TEST_HPP

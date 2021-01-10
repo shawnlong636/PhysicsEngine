@@ -62,6 +62,12 @@ void Vector3::makeOrthonormalBasis(Vector3* a, Vector3* b, Vector3* c) {
     order of both of the cross products (b x a and c x a)  */
 }
 
+void Vector3::addScaledVector(const Vector3& v, const double& scalar) {
+    this->x += v.x*scalar;
+    this->y += v.y*scalar;
+    this->z += v.z*scalar;
+}
+
 Vector3 Vector3::operator+(const phys::Vector3& v) {
     Vector3 vec1(this->x,this->y,this->z);
     vec1.x += v.x;
