@@ -5,8 +5,17 @@
 #include "phys/particle.hpp"
 using namespace phys;
 
-TEST(ParticleTest,tempTest) {
-    EXPECT_TRUE(true);
+TEST(ParticleTest,MassMutators) {
+    Particle p;
+    EXPECT_DOUBLE_EQ(p.getMass(),1.0);
+
+    EXPECT_THROW(p.setMass(0),std::invalid_argument);
+    EXPECT_THROW(p.setMass(0.0),std::invalid_argument);
+    EXPECT_THROW(p.setMass(-1.0),std::invalid_argument);
+
+    p.setMass(3.0);
+
+    EXPECT_DOUBLE_EQ(p.getMass(),3.0);
 }
 
 #endif // PARTICLE_TEST_HPP

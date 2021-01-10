@@ -3,6 +3,7 @@
 
 #include "core.hpp"
 #include <stdexcept>
+#include <climits>
 
 namespace phys {
     class Particle {
@@ -11,9 +12,16 @@ namespace phys {
         Vector3 velocity;
         Vector3 acceleration;
         Vector3 forceAccum;
+
         double damping;
         double inverseMass;
     public:
+        Particle();
+
+        // Mutators
+        void setMass(const double mass);
+        double getMass() const;
+
         void integrate(double duration);
     };
 }
