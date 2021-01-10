@@ -7,6 +7,7 @@ include_directories(include/)
 
 add_library(src_files SHARED
     src/core.cpp
+    src/particle.cpp
 )
 
 #add_executable(testDriver 
