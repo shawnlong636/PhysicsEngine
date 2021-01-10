@@ -6,6 +6,8 @@ Particle::Particle() {
     damping = 0.999;
 }
 
+// Mutators
+
 void Particle::setMass(const double mass) {
     if (mass<=0) {
         throw std::invalid_argument("Mass must be greater than zero");
@@ -20,6 +22,17 @@ double Particle::getMass()const {
     else {
         return 1.0/inverseMass;
     }
+}
+
+void Particle::setInverseMass(double inverseMass) {
+    if (inverseMass < 0) {
+        throw std::invalid_argument("Inverse mass must be greater than or equal to 0");
+    }
+    this->inverseMass = inverseMass;
+}
+
+double Particle::getInverseMass()const {
+    return inverseMass;
 }
 
 void Particle::integrate(double duration) {
