@@ -1,8 +1,8 @@
 # Vector3
 
-The Vector3 class represents a vector in <img src="https://render.githubusercontent.com/render/math?math=\mathbb{R}^3"> and is part of the phys namespace.
+The Vector3 class represents a vector in <img src="https://render.githubusercontent.com/render/math?math=\mathbb{R}^3"> and is part of the `phys` namespace.
 
-#### Properties
+#### Public Properties
 
 | Type   | Name | Description                  |
 | ------ | ---- | ---------------------------- |
