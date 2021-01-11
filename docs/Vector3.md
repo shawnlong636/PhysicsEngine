@@ -20,7 +20,8 @@ The Vector3 class represents a vector in <img src="https://render.githubusercont
 | double  | dotProduct(const Vector3& v)                                 | Returns the numerical value of the dot product of a vector with respect to another. Since this is a member function, the first vector is the one the method is called on, and the second is the parameter. |
 | Vector3 | crossProduct(const Vector3& v)                               | Returns a vector which is orthogonal to the current vector and the parameter. Implementation based on simplification of the determinant for these two vector functions. ([Details](#Cross Product)) |
 | double  | magnitude()                                                  | Returns magnitude of the vector expressed by <img src="https://latex.codecogs.com/gif.latex?\sqrt{x^2&plus;y^2&plus;z^2}" title="\sqrt{x^2+y^2+z^2}" /> |
-| void    | normalize                                                    | Normalizes the vector by dividing each component by the `magnitude()` of the vector. The result is a vector with magnitude 1. |
+| void    | normalize()                                                  | Normalizes the vector by dividing each component by the `magnitude()` of the vector. The result is a vector with magnitude 1. |
+| void    | clear()                                                      | This method resets the vector to (0,0,0).                    |
 
 #### Static Methods
 

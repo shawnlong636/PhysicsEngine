@@ -214,4 +214,20 @@ TEST(VectorTests, AddScaledVector) {
     EXPECT_DOUBLE_EQ(v3.z,1);
 }
 
+TEST(VectorTest, Clear) {
+    Vector3 v1;
+    v1.clear();
+
+    EXPECT_DOUBLE_EQ(v1.x,0.0);
+    EXPECT_DOUBLE_EQ(v1.y,0.0);
+    EXPECT_DOUBLE_EQ(v1.z,0.0);
+
+    Vector3 v2(-99999,1238905792,123454);
+    v2.clear();
+
+    EXPECT_DOUBLE_EQ(v2.x,0.0);
+    EXPECT_DOUBLE_EQ(v2.y,0.0);
+    EXPECT_DOUBLE_EQ(v2.z,0.0);
+}
+
 #endif // VECTOR_TEST_HPP

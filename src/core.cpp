@@ -5,6 +5,8 @@ Vector3::Vector3() : x(0), y(0), z(0) { }
 
 Vector3::Vector3(const double x, const double y, const double z) : x(x), y(y), z(z) { }
 
+/* Other Methods */
+
 void Vector3::invert() {
     x *= -1;
     y *= -1;
@@ -67,6 +69,14 @@ void Vector3::addScaledVector(const Vector3& v, const double& scalar) {
     this->y += v.y*scalar;
     this->z += v.z*scalar;
 }
+
+void Vector3::clear() {
+    x = 0;
+    y = 0;
+    z = 0;
+}
+
+/* Operator Overloaders */
 
 Vector3 Vector3::operator+(const phys::Vector3& v) {
     Vector3 vec1(this->x,this->y,this->z);
