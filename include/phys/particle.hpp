@@ -21,9 +21,9 @@ namespace phys {
         // Mutators
         void setMass(const double mass);
         double getMass() const;
-        
         void setInverseMass(const double inverseMass);
         double getInverseMass()const;
+        bool hasFiniteMass()const;
 
         void integrate(double duration);
     };

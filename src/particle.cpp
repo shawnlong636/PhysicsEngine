@@ -35,6 +35,15 @@ double Particle::getInverseMass()const {
     return inverseMass;
 }
 
+bool Particle::hasFiniteMass()const {
+    if (inverseMass == 0 ) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
 void Particle::integrate(double duration) {
 
     // ERROR CHECKS

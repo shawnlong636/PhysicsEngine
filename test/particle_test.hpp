@@ -21,11 +21,17 @@ TEST(ParticleTest,MassMutators) {
 TEST(ParticleTest,InverseMassMutators) {
     Particle p;
     EXPECT_DOUBLE_EQ(p.getInverseMass(),1.0);
-    
     EXPECT_THROW(p.setInverseMass(-1.2345),std::invalid_argument);
 
     p.setInverseMass(0.0);
     EXPECT_DOUBLE_EQ(p.getInverseMass(),0.0);
+}
+
+TEST(ParticleTest,HasFiniteMass) {
+    Particle p;
+    EXPECT_TRUE(p.hasFiniteMass());
+    p.setInverseMass(0);
+    EXPECT_FALSE(p.hasFiniteMass());
 }
 
 #endif // PARTICLE_TEST_HPP
