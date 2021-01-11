@@ -65,4 +65,34 @@ TEST(ParticleTest, PositionMutators) {
     EXPECT_DOUBLE_EQ(v1->y,1.0);
     EXPECT_DOUBLE_EQ(v1->z,1.0);
 }
+
+TEST(ParticleTest, VelocityMutators) {
+    Particle p;
+    p.setVelocity(9,-9,9);
+
+    EXPECT_DOUBLE_EQ(p.getVelocity().x,9.0);
+    EXPECT_DOUBLE_EQ(p.getVelocity().y,-9.0);
+    EXPECT_DOUBLE_EQ(p.getVelocity().z,9.0);
+
+    Vector3 v(-1,-1,-1);
+    p.setVelocity(v);
+
+    EXPECT_DOUBLE_EQ(p.getVelocity().x,-1);
+    EXPECT_DOUBLE_EQ(p.getVelocity().y,-1);
+    EXPECT_DOUBLE_EQ(p.getVelocity().z,-1);
+
+    p.setVelocity(Vector3(0,0,0));
+    EXPECT_DOUBLE_EQ(p.getVelocity().x,0.0);
+    EXPECT_DOUBLE_EQ(p.getVelocity().y,0.0);
+    EXPECT_DOUBLE_EQ(p.getVelocity().z,0.0);
+
+    Vector3* v1;
+
+    p.copyVelocityTo(v1);
+
+    EXPECT_DOUBLE_EQ(v1->x,0.0);
+    EXPECT_DOUBLE_EQ(v1->y,0.0);
+    EXPECT_DOUBLE_EQ(v1->z,0.0);
+
+}
 #endif // PARTICLE_TEST_HPP
