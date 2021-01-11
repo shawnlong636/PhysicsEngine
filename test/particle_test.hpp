@@ -5,7 +5,7 @@
 #include "phys/particle.hpp"
 using namespace phys;
 
-TEST(ParticleTest,MassMutators) {
+TEST(ParticleTest,MassMethods) {
     Particle p;
     EXPECT_DOUBLE_EQ(p.getMass(),1.0);
 
@@ -18,7 +18,7 @@ TEST(ParticleTest,MassMutators) {
     EXPECT_DOUBLE_EQ(p.getMass(),3.0);
 }
 
-TEST(ParticleTest,InverseMassMutators) {
+TEST(ParticleTest,InverseMassMethods) {
     Particle p;
     EXPECT_DOUBLE_EQ(p.getInverseMass(),1.0);
     EXPECT_THROW(p.setInverseMass(-1.2345),std::invalid_argument);
@@ -34,7 +34,7 @@ TEST(ParticleTest,HasFiniteMass) {
     EXPECT_FALSE(p.hasFiniteMass());
 }
 
-TEST(ParticleTest,DampingMutators) {
+TEST(ParticleTest,DampingMethods) {
     Particle p;
     EXPECT_DOUBLE_EQ(p.getDamping(), 0.999);
     
@@ -44,7 +44,7 @@ TEST(ParticleTest,DampingMutators) {
     EXPECT_DOUBLE_EQ(p.getDamping(),3.14159);
 }
 
-TEST(ParticleTest, PositionMutators) {
+TEST(ParticleTest, PositionMethods) {
     Particle p;
     p.setPosition(-3.14,2.82,3.3333);
     EXPECT_DOUBLE_EQ(p.getPosition().x,-3.14);
@@ -66,7 +66,7 @@ TEST(ParticleTest, PositionMutators) {
     EXPECT_DOUBLE_EQ(v1->z,1.0);
 }
 
-TEST(ParticleTest, VelocityMutators) {
+TEST(ParticleTest, VelocityMethods) {
     Particle p;
     p.setVelocity(9,-9,9);
 
@@ -93,5 +93,34 @@ TEST(ParticleTest, VelocityMutators) {
     EXPECT_DOUBLE_EQ(v1->x,0.0);
     EXPECT_DOUBLE_EQ(v1->y,0.0);
     EXPECT_DOUBLE_EQ(v1->z,0.0);
+}
+
+TEST(ParticleTest,AccelerationMethods) {
+    Particle p;
+    p.setAcceleration(4,-2,5);
+
+    EXPECT_DOUBLE_EQ(p.getAcceleration().x,4.0);
+    EXPECT_DOUBLE_EQ(p.getAcceleration().y,-2.0);
+    EXPECT_DOUBLE_EQ(p.getAcceleration().z,5.0);
+
+    Vector3 v(-2,-2,-2);
+    p.setAcceleration(v);
+
+    EXPECT_DOUBLE_EQ(p.getAcceleration().x,-2);
+    EXPECT_DOUBLE_EQ(p.getAcceleration().y,-2);
+    EXPECT_DOUBLE_EQ(p.getAcceleration().z,-2);
+
+    p.setAcceleration(Vector3(1,2,3));
+    EXPECT_DOUBLE_EQ(p.getAcceleration().x,1.0);
+    EXPECT_DOUBLE_EQ(p.getAcceleration().y,2.0);
+    EXPECT_DOUBLE_EQ(p.getAcceleration().z,3.0);
+
+    Vector3* v1;
+
+    p.copyAccelerationTo(v1);
+
+    EXPECT_DOUBLE_EQ(v1->x,1.0);
+    EXPECT_DOUBLE_EQ(v1->y,2.0);
+    EXPECT_DOUBLE_EQ(v1->z,3.0);
 }
 #endif // PARTICLE_TEST_HPP
