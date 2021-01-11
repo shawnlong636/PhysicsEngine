@@ -44,6 +44,18 @@ bool Particle::hasFiniteMass()const {
     }
 }
 
+void Particle::setDamping(const double damping) {
+    if (damping<0) {
+        throw std::invalid_argument("Damping must be greater than 0");
+    }
+
+    this->damping = damping;
+}
+
+double Particle::getDamping()const {
+    return damping;
+}
+
 void Particle::integrate(double duration) {
 
     // ERROR CHECKS
