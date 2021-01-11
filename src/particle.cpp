@@ -6,9 +6,9 @@ Particle::Particle() {
     damping = 0.999;
 }
 
-/* Mutators */
+/* Mutators & Accessors */
 
-// Mass Mutators
+// Mass Methods
 void Particle::setMass(const double mass) {
     if (mass<=0) {
         throw std::invalid_argument("Mass must be greater than zero");
@@ -45,7 +45,7 @@ bool Particle::hasFiniteMass()const {
     }
 }
 
-// Damping Mutators
+// Damping Methods
 void Particle::setDamping(const double damping) {
     if (damping<0) {
         throw std::invalid_argument("Damping must be greater than 0");
@@ -58,7 +58,7 @@ double Particle::getDamping()const {
     return damping;
 }
 
-// Position Mutators
+// Position Methods
 void Particle::setPosition(const double x, const double y, const double z) {
     position.x = x;
     position.y = y;
@@ -79,7 +79,7 @@ void Particle::copyPositionTo(Vector3* v) {
     v->z = position.z;
 }
 
-// Velocity Mutators
+// Velocity Methods
 void Particle::setVelocity(const double x, const double y, const double z) {
     velocity.x = x;
     velocity.y = y;
@@ -98,6 +98,27 @@ void Particle::copyVelocityTo(Vector3* v) {
     v->x = velocity.x;
     v->y = velocity.y;
     v->z = velocity.z;
+}
+
+// Acceleration Methods
+void Particle::setAcceleration(const double x, const double y, const double z) {
+    acceleration.x = x;
+    acceleration.y = y;
+    acceleration.z = z;
+}
+
+void Particle::setAcceleration(const Vector3& v) {
+    acceleration = v;
+}
+
+Vector3 Particle::getAcceleration()const {
+    return acceleration;
+}
+
+void Particle::copyAccelerationTo(Vector3* v) {
+    v->x = acceleration.x;
+    v->y = acceleration.y;
+    v->z = acceleration.z;
 }
 
 /* Other Methods */

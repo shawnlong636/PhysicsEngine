@@ -18,30 +18,36 @@ namespace phys {
     public:
         Particle();
 
-        /* Mutators */
+        /* Mutators & Accessors */
 
-        // Mass Mutators
+        // Mass Methods
         void setMass(const double mass);
         double getMass() const;
         void setInverseMass(const double inverseMass);
         double getInverseMass()const;
         bool hasFiniteMass()const;
 
-        // Damping Mutators
+        // Damping Methods
         void setDamping(const double damping);
         double getDamping()const;
 
-        // Position Mutators
+        // Position Methods
         void setPosition(const double x, const double y, const double z);
         void setPosition(const Vector3& v);
         Vector3 getPosition()const;
         void copyPositionTo(Vector3* v);
 
-        // Velocity Mutators
+        // Velocity Methods
         void setVelocity(const double x, const double y, const double z);
         void setVelocity(const Vector3& v);
         Vector3 getVelocity()const;
         void copyVelocityTo(Vector3* v);
+
+        // Acceleration Methods
+        void setAcceleration(const double x, const double y, const double z);
+        void setAcceleration(const Vector3& v);
+        Vector3 getAcceleration()const;
+        void copyAccelerationTo(Vector3* v);
 
         /* Other Methods */
         void integrate(double duration);

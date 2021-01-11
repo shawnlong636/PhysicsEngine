@@ -18,25 +18,29 @@ The particle class contains objects with position but without orientation.
 
 #### Public Methods
 
-| Type                  | Name                                                        | Description                                                  |
-| --------------------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
-|                       | Particle()                                                  | Default constructor for particles. The default value for `damping` is set to 0.999 and the default value for `inverseMass` is 1.0. |
-| void                  | setMass(const double mass)                                  | Mutator for `inverseMass` that accepts values greater than 0. Mass is conveyed by setting *inverseMass = 1/mass*. |
-| double                | getMass()const                                              | Accessor for `inverseMass`. Returns 1/inverseMass which is equivalent to the mass. If the mass is infinite (*inverseMass==0*), then `std::numeric_limits<double>::max()` is returned. |
-| void                  | setInverseMass(const double inverseMass)                    | Mutator method for `inverseMass` which accepts only positive values. |
-| double                | getInverseMass()const                                       | Accessor for `inverseMass`.                                  |
-| bool                  | hasFiniteMass()const                                        | Returns true if `inverseMass` is not zero.                   |
-| void                  | setDamping(const double damping)                            | Mutator for `damping` which accepts values greater than zero. |
-| double                | getDamping()const                                           | Accessor for `damping`.                                      |
-| void                  | setPosition(const double x, const double y, const double z) | Mutator for `position`.                                      |
-| void                  | setPosition(const [Vector3](Vector3.md)& v)                 | Mutator for `position`.                                      |
-| [Vector3](vector3.md) | getPosition()const                                          | Accessor for `position`.                                     |
-| void                  | copyPositionTo([Vector3](Vector3.md)* v)                    | Sets the coordinates of pointer v to equal the particle's current *position*. |
-| void                  | setVelocity(const double x, const double y, const double z) | Mutator for `velocity`.                                      |
-| void                  | setVelocity(const Vector3& v)                               | Mutator for `velocity`.                                      |
-| [Vector3](Vector3.md) | getVelocity()const                                          | Accessor for `velocity`.                                     |
-| void                  | copyPositionTo([Vector3](Vector3.md)*)                      | Sets the coordinates of pointer v to equal the particle's current *velocity*. |
-| void                  | integrate(double duration)                                  | This method updates the position based on velocity and the velocity based on the acceleration<sup>[1](#<sup>1</sup> Integrator Implementation)</sup>. |
+| Type                  | Name                                                         | Description                                                  |
+| --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+|                       | Particle()                                                   | Default constructor for particles. The default value for `damping` is set to 0.999 and the default value for `inverseMass` is 1.0. |
+| void                  | setMass(const double mass)                                   | Mutator for `inverseMass` that accepts values greater than 0. Mass is conveyed by setting *inverseMass = 1/mass*. |
+| double                | getMass()const                                               | Accessor for `inverseMass`. Returns 1/inverseMass which is equivalent to the mass. If the mass is infinite (*inverseMass==0*), then `std::numeric_limits<double>::max()` is returned. |
+| void                  | setInverseMass(const double inverseMass)                     | Mutator method for `inverseMass` which accepts only positive values. |
+| double                | getInverseMass()const                                        | Accessor for `inverseMass`.                                  |
+| bool                  | hasFiniteMass()const                                         | Returns true if `inverseMass` is not zero.                   |
+| void                  | setDamping(const double damping)                             | Mutator for `damping` which accepts values greater than zero. |
+| double                | getDamping()const                                            | Accessor for `damping`.                                      |
+| void                  | setPosition(const double x, const double y, const double z)  | Mutator for `position`.                                      |
+| void                  | setPosition(const [Vector3](Vector3.md)& v)                  | Mutator for `position`.                                      |
+| [Vector3](vector3.md) | getPosition()const                                           | Accessor for `position`.                                     |
+| void                  | copyPositionTo([Vector3](Vector3.md)* v)                     | Sets the coordinates of pointer v to equal the particle's current *position*. |
+| void                  | setVelocity(const double x, const double y, const double z)  | Mutator for `velocity`.                                      |
+| void                  | setVelocity(const [Vector3](Vector3.md)& v)                  | Mutator for `velocity`.                                      |
+| [Vector3](Vector3.md) | getVelocity()const                                           | Accessor for `velocity`.                                     |
+| void                  | copyPositionTo([Vector3](Vector3.md)*)                       | Sets the coordinates of pointer v to equal the particle's current *velocity*. |
+| void                  | setAcceleration(const double x, const double y, const double z) | Mutator for `acceleration`.                                  |
+| void                  | setAcceleration(const [Vector3](Vector3.md)& v)              | Mutator for `acceleration`.                                  |
+| [Vector3](Vector3.md) | getAcceleration()const                                       | Accessor for `acceleration`.                                 |
+| void                  | copyAccelerationTo([Vector3](Vector3.md)* v)                 | Sets the coordinates of pointer v to equal the particle's current *acceleration*. |
+| void                  | integrate(double duration)                                   | This method updates the position based on velocity and the velocity based on the acceleration<sup>[1](#<sup>1</sup> Integrator Implementation)</sup>. |
 
 
 
