@@ -3,7 +3,7 @@
 
 #include "core.hpp"
 #include <stdexcept>
-#include <climits>
+#include <limits>
 
 namespace phys {
     class Particle {
