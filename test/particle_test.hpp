@@ -93,6 +93,5 @@ TEST(ParticleTest, VelocityMutators) {
     EXPECT_DOUBLE_EQ(v1->x,0.0);
     EXPECT_DOUBLE_EQ(v1->y,0.0);
     EXPECT_DOUBLE_EQ(v1->z,0.0);
-
 }
 #endif // PARTICLE_TEST_HPP
