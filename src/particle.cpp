@@ -6,8 +6,9 @@ Particle::Particle() {
     damping = 0.999;
 }
 
-// Mutators
+/* Mutators */
 
+// Mass Mutators
 void Particle::setMass(const double mass) {
     if (mass<=0) {
         throw std::invalid_argument("Mass must be greater than zero");
@@ -44,6 +45,7 @@ bool Particle::hasFiniteMass()const {
     }
 }
 
+// Damping Mutators
 void Particle::setDamping(const double damping) {
     if (damping<0) {
         throw std::invalid_argument("Damping must be greater than 0");
@@ -56,6 +58,28 @@ double Particle::getDamping()const {
     return damping;
 }
 
+// Position Mutators
+void Particle::setPosition(const double x, const double y, const double z) {
+    position.x = x;
+    position.y = y;
+    position.z = z;
+}
+
+void Particle::setPosition(const Vector3& v) {
+    position = v;
+}
+
+Vector3 Particle::getPosition()const {
+    return position;
+}
+
+void Particle::copyPositionTo(Vector3* v) {
+    v->x = position.x;
+    v->y = position.y;
+    v->z = position.z;
+}
+
+/* Other Methods */
 void Particle::integrate(double duration) {
 
     // ERROR CHECKS
