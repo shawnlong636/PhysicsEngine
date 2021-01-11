@@ -79,6 +79,27 @@ void Particle::copyPositionTo(Vector3* v) {
     v->z = position.z;
 }
 
+// Velocity Mutators
+void Particle::setVelocity(const double x, const double y, const double z) {
+    velocity.x = x;
+    velocity.y = y;
+    velocity.z = z;
+}
+
+void Particle::setVelocity(const Vector3& v) {
+    velocity = v;
+}
+
+Vector3 Particle::getVelocity()const {
+    return velocity;
+}
+
+void Particle::copyVelocityTo(Vector3* v) {
+    v->x = velocity.x;
+    v->y = velocity.y;
+    v->z = velocity.z;
+}
+
 /* Other Methods */
 void Particle::integrate(double duration) {
 
