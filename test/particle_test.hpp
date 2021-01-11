@@ -123,4 +123,23 @@ TEST(ParticleTest,AccelerationMethods) {
     EXPECT_DOUBLE_EQ(v1->y,2.0);
     EXPECT_DOUBLE_EQ(v1->z,3.0);
 }
+
+TEST(ParticleTest,ForceMethods) {
+    Particle p;
+    Vector3 gravity(0,-10,0);
+    Vector3 wind(3,0,0);
+    
+    p.addForce(gravity);
+    p.addForce(wind);
+
+    EXPECT_DOUBLE_EQ(p.getForceAccum().x,3);
+    EXPECT_DOUBLE_EQ(p.getForceAccum().y,-10);
+    EXPECT_DOUBLE_EQ(p.getForceAccum().z,0);
+
+    p.clearAccumulator();
+
+    EXPECT_DOUBLE_EQ(p.getForceAccum().x,0.0);
+    EXPECT_DOUBLE_EQ(p.getForceAccum().y,0.0);
+    EXPECT_DOUBLE_EQ(p.getForceAccum().z,0.0);
+}
 #endif // PARTICLE_TEST_HPP

@@ -136,3 +136,15 @@ void Particle::integrate(double duration) {
 
     velocity = velocity * std::pow(damping,duration) + acceleration*duration;
 }
+
+void Particle::clearAccumulator() {
+    forceAccum.clear();
+}
+
+void Particle::addForce(const Vector3& v) {
+    forceAccum += v;
+}
+
+Vector3 Particle::getForceAccum()const {
+    return forceAccum;
+}

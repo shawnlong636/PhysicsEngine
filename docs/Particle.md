@@ -11,6 +11,7 @@ The particle class contains objects with position but without orientation.
 | [Vector3](Vector3.md) | position     | This is a vector representation of the particle position     |
 | [Vector3](Vector3.md) | velocity     | This is a vector representation of the particle velocity     |
 | [Vector3](Vector3.md) | acceleration | This is a vector representation of the particle acceleration |
+| [Vector3](Vector3.md) | forceAccum   | This is a vector that stores the sum of all forces to be applied to a particle. It is incorporated into the acceleration via `integrate()`. |
 | double                | damping      | This property accounts for numerical inaccuracy with respect to Newton's first law. According to the law, an object in motion will stay in motion unless acted upon by an outside force. If there are no forces acting on an object however, objects might actually accelerate because of this inaccuracy. Thus, we use damping which approximates a kind of drag. If an object is to be treated as if there are no forces acting upon it, damping should be set to 0.999, not 1. |
 | Double                | inverseMass  | This property is equivalent to <img src="https://latex.codecogs.com/gif.latex?\frac{1}{\text{mass}}" title="\frac{1}{\text{mass}}" />. The inverse mass is stored instead of the mass so that particles can have near infinite mass, but never zero mass. |
 
@@ -40,6 +41,9 @@ The particle class contains objects with position but without orientation.
 | void                  | setAcceleration(const [Vector3](Vector3.md)& v)              | Mutator for `acceleration`.                                  |
 | [Vector3](Vector3.md) | getAcceleration()const                                       | Accessor for `acceleration`.                                 |
 | void                  | copyAccelerationTo([Vector3](Vector3.md)* v)                 | Sets the coordinates of pointer v to equal the particle's current *acceleration*. |
+| void                  | clearAccumulator()                                           | This method resets vector `forceAccum` to all zeros by calling `forceAccum.clear()`. |
+| void                  | addForce(const Vector3& v)                                   | This method adds a vector to `forceAccum` before being called by `integrate()`. |
+| Vector3               | getForceAccum()const                                         | Accessor method for `forceAccum`.                            |
 | void                  | integrate(double duration)                                   | This method updates the position based on velocity and the velocity based on the acceleration<sup>[1](#<sup>1</sup> Integrator Implementation)</sup>. |
 
 

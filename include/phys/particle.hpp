@@ -49,8 +49,14 @@ namespace phys {
         Vector3 getAcceleration()const;
         void copyAccelerationTo(Vector3* v);
 
+        // Force Methods
+        void clearAccumulator();
+        void addForce(const Vector3& v);
+        Vector3 getForceAccum()const;
+
         /* Other Methods */
         void integrate(double duration);
+
     };
 }
 
