@@ -43,4 +43,26 @@ TEST(ParticleTest,DampingMutators) {
     p.setDamping(3.14159);
     EXPECT_DOUBLE_EQ(p.getDamping(),3.14159);
 }
+
+TEST(ParticleTest, PositionMutators) {
+    Particle p;
+    p.setPosition(-3.14,2.82,3.3333);
+    EXPECT_DOUBLE_EQ(p.getPosition().x,-3.14);
+    EXPECT_DOUBLE_EQ(p.getPosition().y,2.82);
+    EXPECT_DOUBLE_EQ(p.getPosition().z,3.3333);
+
+    Vector3 v(1,1,1);
+    p.setPosition(v);
+
+    EXPECT_DOUBLE_EQ(p.getPosition().x,1.0);
+    EXPECT_DOUBLE_EQ(p.getPosition().y,1.0);
+    EXPECT_DOUBLE_EQ(p.getPosition().z,1.0);
+
+    Vector3* v1;
+    p.copyPositionTo(v1);
+
+    EXPECT_DOUBLE_EQ(v1->x,1.0);
+    EXPECT_DOUBLE_EQ(v1->y,1.0);
+    EXPECT_DOUBLE_EQ(v1->z,1.0);
+}
 #endif // PARTICLE_TEST_HPP

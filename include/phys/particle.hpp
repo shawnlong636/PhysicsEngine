@@ -18,16 +18,26 @@ namespace phys {
     public:
         Particle();
 
-        // Mutators
+        /* Mutators */
+
+        // Mass Mutators
         void setMass(const double mass);
         double getMass() const;
         void setInverseMass(const double inverseMass);
         double getInverseMass()const;
         bool hasFiniteMass()const;
 
+        // Damping Mutators
         void setDamping(const double damping);
         double getDamping()const;
 
+        // Position Mutators
+        void setPosition(const double x, const double y, const double z);
+        void setPosition(const Vector3& v);
+        Vector3 getPosition()const;
+        void copyPositionTo(Vector3* v);
+
+        /* Other Methods */
         void integrate(double duration);
     };
 }
