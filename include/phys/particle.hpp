@@ -25,6 +25,9 @@ namespace phys {
         double getInverseMass()const;
         bool hasFiniteMass()const;
 
+        void setDamping(const double damping);
+        double getDamping()const;
+
         void integrate(double duration);
     };
 }

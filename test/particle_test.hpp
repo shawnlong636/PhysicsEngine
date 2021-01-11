@@ -34,4 +34,13 @@ TEST(ParticleTest,HasFiniteMass) {
     EXPECT_FALSE(p.hasFiniteMass());
 }
 
+TEST(ParticleTest,DampingMutators) {
+    Particle p;
+    EXPECT_DOUBLE_EQ(p.getDamping(), 0.999);
+    
+    EXPECT_THROW(p.setDamping(-1.2),std::invalid_argument);
+
+    p.setDamping(3.14159);
+    EXPECT_DOUBLE_EQ(p.getDamping(),3.14159);
+}
 #endif // PARTICLE_TEST_HPP
